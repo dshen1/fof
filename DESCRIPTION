@@ -1,0 +1,11 @@
+Package: fof
+Type: Package
+Title: Flow of funds data
+Date: 2015-05-01
+Version: 0.1
+Authors@R: "Don Boyd <donboyd5@gmail.com> [aut, cre]"
+Description: Full flow of funds data
+Depends:
+    R (>= 3.1.0)
+License: GPL-2
+LazyData: TRUE
