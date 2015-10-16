@@ -16,5 +16,6 @@ glimpse(fof)
 # count(fof, freq)
 # count(fof, is.na(value))
 
+
 devtools::use_data(fof, overwrite=TRUE)
 
