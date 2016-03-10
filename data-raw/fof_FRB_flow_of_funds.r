@@ -3,7 +3,7 @@ library("apitools")
 library("btools")
 library("dplyr")
 
-df <- z1()
+system.time(df <- z1())
 ht(df)
 memory()
 # make the file smaller and easier to work with
@@ -13,6 +13,7 @@ fof <- df %>% mutate(description=factor(description),
                       date=as.Date(date)) %>%
   filter(!is.na(value))
 glimpse(fof)
+max(fof$date)
 # count(fof, freq)
 # count(fof, is.na(value))
 
