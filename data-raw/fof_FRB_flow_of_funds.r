@@ -94,7 +94,7 @@ dd.df2 <- dd.df %>% arrange(lineno) %>%
 
 
 #****************************************************************************************************
-#                create fof file and save ####
+#                Create fof file and save ####
 #****************************************************************************************************
 fof <- csvdf3 %>% left_join(dd.df2) %>%
   mutate_at(vars(src, description, freq, variable, description, lineno, table, units), factor) %>%
@@ -108,6 +108,22 @@ max(fof$date)
 
 devtools::use_data(fof, overwrite=TRUE)
 
+
+#****************************************************************************************************
+#                Create a second file, fofu, with unique values, and save ####
+#****************************************************************************************************
+# since fof variables can appear in multiple tables, there are multiple copies in the fof file
+# fofu has unique values - it is a slimmed down file
+
+fofu <- fof %>% select(date, year, freq, variable, value, description, units) %>%
+  unique %>% group_by(date, year, freq, variable, value, description) %>%
+  arrange(units) %>%
+  filter(row_number()==1) %>%
+  ungroup
+
+glimpse(fofu)
+
+devtools::use_data(fofu, overwrite=TRUE)
 
 #****************************************************************************************************
 #                CAUTION: ONLY unlink when all done, or file will have to be re-downloaded ####
