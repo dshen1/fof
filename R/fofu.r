@@ -3,6 +3,7 @@
 #' fofu Flow of funds (FOF), ALL data, national, from a recent release, only the unique values.
 #'
 #' @source Federal Reserve Board Z1 release (http://www.federalreserve.gov/releases/z1/current/)
+#'
 #' Download https://www.federalreserve.gov/releases/z1/Current/z1_csv_files.zip, read and combine files
 #' @format Data frame with 1 row per variable per date, NA and duplicate records have been removed.
 #' \describe{
